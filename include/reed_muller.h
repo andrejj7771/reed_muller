@@ -7,6 +7,7 @@ class ReedMuller {
 	
 	int8_t m_r;
 	int8_t m_m;
+	uint64_t m_k;
 	
 	Matrix * m_G;
 	
@@ -17,6 +18,7 @@ public:
 	
 private:
 	
-	void init();
+	void init_V0_V4(Matrix & mat);
+	void init_V5_VN(Matrix & mat);
 	
 };

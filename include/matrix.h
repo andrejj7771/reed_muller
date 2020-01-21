@@ -35,5 +35,13 @@ public:
 		return *m_mat[r];
 	}
 	
+	inline size_t getNumOfRows() const {
+		return m_rows;
+	}
+	
+	inline size_t getNumOfCols() const {
+		return m_cols;
+	}
+	
 };
 

@@ -5,6 +5,10 @@ CONFIG -= qt
 
 DESTDIR = $$PWD/../bin
 
+CONFIG(debug, debug|release) {
+    DEFINES += __DEBUG
+}
+
 INCLUDEPATH += $$PWD/../include
 
 HEADERS += $$PWD/../include/utils.h
