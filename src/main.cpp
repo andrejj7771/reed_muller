@@ -1,10 +1,41 @@
 #include <iostream>
 #include <cstring>
 #include <map>
+#include <algorithm>
 
 #include "reed_muller.h"
 
+using sum_pair = std::pair<int, int>;
+
+std::vector<sum_pair> genCheckSum(int m, int i) {
+	std::vector<sum_pair> sums;
+	std::vector<int> bl;		//black list
+	
+	int offset = 1 << (m - i);
+	int p = 0;
+	for (int j = 0; p < (1 << m) - 1; ++j) {
+		int t = j;
+		p = t + offset;
+		
+		if (std::find(bl.begin(), bl.end(), p) == bl.end() &&
+				std::find(bl.begin(), bl.end(), t) == bl.end())
+		{
+			bl.push_back(t);
+			bl.push_back(p);
+			
+			sums.push_back({t, p});
+		}
+	}
+	
+	return sums;
+}
+
 int main(int argc, char** argv) {
+	for (int i = 1; i <= 3; ++i) {
+		auto s = genCheckSum(3, i);
+		std::cout << i << std::endl;
+	}
+	
 	auto args = Utils::getArgsList(argc, argv);
 	if (args.find(Utils::arg_t::help) != args.end()) {
 		Utils::printHelp();
