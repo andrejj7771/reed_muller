@@ -15,14 +15,6 @@ public:
 	Vector(const Vector & vec);
 	~Vector() = default;
 	
-	inline void set(int8_t val, size_t pos) {
-		if (pos >= m_size) {
-			return;
-		}
-		
-		m_vec[pos] = val;
-	}
-	
 	inline void set(size_t index, int8_t val) {
 		assert(m_size >= index);
 		m_vec[index] = val;
