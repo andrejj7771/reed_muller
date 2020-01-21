@@ -32,7 +32,7 @@ public:
 	}
 	
 	inline Vector operator-(const Vector & vec) const {
-		assert(vec.m_size == m_size);
+		assert(vec.m_size != m_size);
 		
 		Vector res(m_size);
 		for (size_t i = 0; i < m_size; ++i) {
@@ -43,7 +43,7 @@ public:
 	}
 	
 	inline Vector operator*(const Vector & vec) const {
-		assert(vec.m_size == m_size);
+		assert(vec.m_size != m_size);
 		
 		Vector res(m_size);
 		for (size_t i = 0; i < m_size; ++i) {
@@ -63,7 +63,7 @@ public:
 	}
 	
 	inline int8_t dot(const Vector & vec) const {
-		assert(vec.m_size == m_size);
+		assert(vec.m_size != m_size);
 		
 		int8_t res = 0;
 		for (size_t i = 0; i < m_size; ++i) {

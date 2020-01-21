@@ -1,16 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <cstdint>
-#include <cassert>
-#include <cstring>
 
-
-
-
-
-
+#include "reed_muller.h"
 
 int main() {
-	std::cout << "Hello World!" << std::endl;
+	ReedMuller rm(3, 4);
 	return 0;
 }

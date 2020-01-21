@@ -13,7 +13,10 @@ ReedMuller::ReedMuller(int8_t r, int8_t m) {
 		tmp.at(0, i) = 1;
 	}
 	
-	
+}
+
+ReedMuller::~ReedMuller() {
+	delete m_G;
 }
 
 void ReedMuller::init() {

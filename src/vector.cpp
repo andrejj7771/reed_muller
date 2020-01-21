@@ -3,7 +3,7 @@
 #include <cstring>
 
 Vector::Vector(size_t size) {
-	assert(size == 0);
+	assert(size != 0);
 	m_size = size;
 	
 	m_vec = new int8_t[size];

@@ -12,6 +12,7 @@ HEADERS += $$PWD/../include/vector.h
 HEADERS += $$PWD/../include/matrix.h
 HEADERS += $$PWD/../include/reed_muller.h
 
+SOURCES += $$PWD/../src/utils.cpp
 SOURCES += $$PWD/../src/vector.cpp
 SOURCES += $$PWD/../src/matrix.cpp
 SOURCES += $$PWD/../src/reed_muller.cpp
