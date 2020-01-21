@@ -34,7 +34,7 @@ void ReedMuller::init_V0_V4(Matrix & mat) {
 			}
 			
 			if (k < offset) {
-				mat.at(i, j) = 1;
+				mat.set(i, j, 1);
 			}
 		}
 	}
