@@ -23,11 +23,14 @@ namespace Utils {
 		return res;
 	}
 	
-	uint64_t sumOfCombinations(int8_t r, int8_t m) {
+	uint64_t sumOfCombinations(int8_t r, int8_t m, Vec3D & combination) {
 		uint64_t sum = 1;
 		
 		for (int8_t i = 1; i <= r; ++i) {
 			sum += numOfCombinations(i, m);
+			if (i > 1) {
+				combination.push_back(combinationList(m, i));
+			}
 		}
 		
 		return sum;
@@ -36,10 +39,11 @@ namespace Utils {
 	bool combination(std::vector<int> & a, int n, int m) {
 		int k = m;
 		for (int i = k - 1; i >= 0; --i) {
-			if (a[i] < int(size_t(n - k) + i + 1)) {
+			if (a[i] < n - k + i + 1) {
 				++a[i];
-				for (int j = i + 1; j < k; ++j)
+				for (int j = i + 1; j < k; ++j) {
 					a[j] = a[j - 1] + 1;
+				}
 				return true;
 			}
 		}
@@ -50,20 +54,21 @@ namespace Utils {
 		Vec2D combMatrix;
 		std::vector<int> combVec;
 		
-		for (int i = 0; i < m; ++i) {
+		for (int i = 0; i < n; i++) {
 			combVec.push_back(i + 1);
 		}
 		
-		combMatrix.push_back(combVec);
+		std::vector<int> copy = combVec;
+		copy.resize(size_t(m));
+		combMatrix.push_back(copy);
 		
-		for (int i = 1; i < m; ++i) {
-			if (n >= m) {
-				while (combination(combVec, n, i) == true) {
-					combMatrix.push_back(combVec);
-				}
+		if (n >= m) {
+			while (combination(combVec, n, m) == true) {
+				copy = combVec;
+				copy.resize(size_t(m));
+				combMatrix.push_back(copy);
 			}
 		}
-		
 		return combMatrix;
 	}
 	

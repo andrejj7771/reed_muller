@@ -10,6 +10,7 @@ class ReedMuller {
 	uint64_t m_k;
 	
 	Matrix * m_G;
+	Utils::Vec3D m_combinations;
 	
 public:
 	
